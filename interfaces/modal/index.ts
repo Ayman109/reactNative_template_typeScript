@@ -4,4 +4,5 @@ interface IUser {
     password : string 
 }
 
+
 export {IUser}

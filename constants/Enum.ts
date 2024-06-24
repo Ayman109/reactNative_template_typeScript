@@ -11,4 +11,9 @@ enum Theme {
 
 }
 
-export {Lang , Theme} ; 
+enum AuthState {
+    login = "login" , 
+    logout= "logout" , 
+}
+
+export {Lang , Theme , AuthState} ; 

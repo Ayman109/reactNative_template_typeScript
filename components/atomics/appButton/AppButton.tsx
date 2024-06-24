@@ -5,11 +5,12 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 
 
 const AppButton = ({ value, isDisabled, onPress, style }: IAppButton) => {
-  const theme  = useThemeColor() ;
+  const {themeChangeState , getColors } = useThemeColor();
+  
   return (
     <>
-      <TouchableOpacity style={[styles.button , {backgroundColor : theme.primary} ]} onPress={onPress} disabled={isDisabled}>
-        <Text style = {[{color : theme.buttonText}]} > {value} </Text>
+      <TouchableOpacity style={[styles.button , {backgroundColor : getColors().primary} ]} onPress={onPress} disabled={isDisabled}>
+        <Text style = {[{color : getColors().buttonText}]} > {value} </Text>
       </TouchableOpacity>
     </>
   );
