@@ -3,7 +3,7 @@ import { useTransition } from "@/hooks/useTransition";
 import { ILoginForm } from "@/interfaces/organismes";
 import MainLayout from "@/layout/mainLayout/MainLayout";
 
-const LoginForm = ({  onPress , onChangeEmail , onChangePassword , email , password}: ILoginForm): JSX.Element => {
+const SubscribeForm = ({  onPress , onChangeEmail , onChangePassword , email , password}: ILoginForm): JSX.Element => {
   const lang = useTransition()
   return (
     <MainLayout >
@@ -12,7 +12,7 @@ const LoginForm = ({  onPress , onChangeEmail , onChangePassword , email , passw
         <AppInput type={"visible-password"} value={password} placeholder={lang.placeholder_password} onChange={onChangePassword} />
 
         <AppButton
-          value={lang.login}
+          value={lang.subscribe}
           onPress={onPress}
           isDisabled={false}
         />
@@ -20,4 +20,4 @@ const LoginForm = ({  onPress , onChangeEmail , onChangePassword , email , passw
     </MainLayout>
   );
 };
-export default LoginForm ; 
+export default SubscribeForm ; 

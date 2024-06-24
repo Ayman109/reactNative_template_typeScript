@@ -3,20 +3,17 @@
  * https://docs.expo.dev/guides/color-schemes/
  */
 
-import { useColorScheme } from 'react-native';
+import { Colors } from "@/constants/Colors";
+import { Theme } from "@/constants/Enum";
+import { useSelector } from "react-redux";
 
-import { Colors } from '@/constants/Colors';
 
-export function useThemeColor(
-  props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
-) {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
+export function useThemeColor() {
+    const theme = useSelector<any>(state => state.reducerSetting.setting.color) ;
+    switch (theme) {
+        case Theme.light:  return Colors.light ; 
+        case Theme.dark :  return Colors.dark ;  
+        default :  return Colors.light  ; 
+    }
 
-  if (colorFromProps) {
-    return colorFromProps;
-  } else {
-    return Colors[theme][colorName];
-  }
 }
